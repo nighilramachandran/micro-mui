@@ -154,8 +154,6 @@ export const CustomForm: React.FC<props> = (props) => {
   useEffect(() => {
     if (formik && setFormik) {
       setFormik(formik);
-      // formik.validateForm()
-      // formik.setErrors(formik.errors)
     }
   }, [formik.values]);
 
@@ -201,7 +199,6 @@ export const CustomForm: React.FC<props> = (props) => {
           <LoadingButton
             variant="outlined"
             type="submit"
-            // disabled={!formik.isValid}
             loading={status === "loading"}
             sx={{ width: "100%" }}
           >

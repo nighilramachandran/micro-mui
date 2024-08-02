@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
+import Login from "./sections/auth/Login";
 
 const App = () => (
   <div className="container">
+    <Login />
     <div>Name: auth</div>
   </div>
 );

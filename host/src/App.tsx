@@ -3,14 +3,16 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-// import Header from "header/Header";
 import ThemeProviders from "./providers/ThemeProviders";
 import { CssBaseline } from "@mui/material";
 import Header from "./widgets/layouts/header/Header";
 
+import Login from "login/Login";
+
 const App = () => (
   <div className="container">
     <Header />
+    <Login />
   </div>
 );
 const rootElement = document.getElementById("app");

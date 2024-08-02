@@ -14,7 +14,7 @@ export const typographyOverride: Components<Theme> = {
       }),
       body1: ({ theme }) => ({
         color: theme.palette.text.primary,
-        fontSize: "26px",
+        fontSize: "12px",
       }),
       body2: ({ theme }) => ({
         fontSize: "20px",

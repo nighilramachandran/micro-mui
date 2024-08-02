@@ -31,7 +31,7 @@ export const FormInput: React.FC<props> = ({
   getOptionLabel,
   ...restInputProps
 }) => {
-  const { palette } = useTheme();
+  // const { palette } = useTheme();
   //functions
   const [initType] = React.useState<string>(type);
   const [currentType, setCurrentType] = React.useState<string>(
@@ -136,7 +136,8 @@ export const FormInput: React.FC<props> = ({
         onPaste={initType === "number" ? (e) => e.preventDefault() : undefined}
         onChange={handleLocalOnChange}
         {...restInputProps}
-        variant="outlined"
+        // variant="outlined"
+        className="outlined-gradient"
         multiline={type === "textarea"}
         value={formik.values[name]}
         error={!!getFormErrorMessage(name)}
