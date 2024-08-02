@@ -67,6 +67,7 @@ module.exports = (_, argv) => ({
       remotes: {},
       exposes: {
         "./Login": "./src/exports/auth/Login",
+        "./GoogleAuthProvider": "./src/exports/provider/GoogleAuthProvider",
       },
       shared: {
         ...deps,

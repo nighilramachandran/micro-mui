@@ -6,6 +6,7 @@ import { useAppSelector } from "../redux/hooks";
 export function useStore() {
   //   selectors
   const { status } = useAppSelector((state) => state.Auth);
+
   return {
     status,
   };
