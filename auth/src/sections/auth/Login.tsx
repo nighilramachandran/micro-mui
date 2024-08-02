@@ -1,6 +1,8 @@
 import React from "react";
 import { CustomForm, CustomInputFormProps } from "../../components/form";
-import { Paper } from "@mui/material";
+import { Button, Paper } from "@mui/material";
+import { useGoogleLogin, googleLogout } from "@react-oauth/google";
+import GoogleIcon from "@mui/icons-material/Google";
 
 //inputs
 const inputs: CustomInputFormProps[] = [
@@ -24,8 +26,19 @@ const inputs: CustomInputFormProps[] = [
 ];
 
 const Login: React.FC = () => {
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
+  googleLogout();
   return (
     <Paper>
+      <Button
+        onClick={() => login()}
+        variant="contained"
+        startIcon={<GoogleIcon />}
+      >
+        Sign in with Google
+      </Button>
       <CustomForm
         formName="form"
         inputs={inputs}

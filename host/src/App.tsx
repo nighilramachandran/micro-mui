@@ -1,28 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
-
 import ThemeProviders from "./providers/ThemeProviders";
 import { CssBaseline } from "@mui/material";
-import Header from "./widgets/layouts/header/Header";
+import PrivateRoutes from "./Routes";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
-import Login from "login/Login";
+const App = () => <PrivateRoutes />;
 
-const App = () => (
-  <div className="container">
-    <Header />
-    <Login />
-  </div>
-);
+const clientId =
+  "668468703617-3adnh45mvo2glj6u5698131g9tgtt52t.apps.googleusercontent.com";
+
 const rootElement = document.getElementById("app");
 if (!rootElement) throw new Error("Failed to find the root element");
 
 const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
 root.render(
-  <ThemeProviders>
-    <CssBaseline enableColorScheme />
-    <App />
-  </ThemeProviders>
+  <GoogleOAuthProvider clientId={clientId}>
+    <ThemeProviders>
+      <CssBaseline enableColorScheme />
+      <App />
+    </ThemeProviders>
+  </GoogleOAuthProvider>
 );
