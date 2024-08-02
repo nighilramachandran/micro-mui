@@ -1,16 +1,14 @@
 import React from "react";
-import { AppBar, Box, Toolbar } from "@mui/material";
-import {
-  appBarStyles,
-  headerStyles,
-  logoWrapperStyles,
-} from "../../../styles/header";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { appBarStyles, headerStyles } from "../../../styles/header";
 
 const Header: React.FC = () => {
   return (
     <AppBar sx={{ ...appBarStyles }}>
       <Toolbar disableGutters sx={{ ...headerStyles }}>
-        <Box sx={{ ...logoWrapperStyles }}></Box>
+        <Typography variant="h2" color="gradient">
+          SHOP NOW
+        </Typography>
       </Toolbar>
     </AppBar>
   );
