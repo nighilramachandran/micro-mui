@@ -1,8 +1,12 @@
 import React from "react";
 import Login from "login/Login";
 import { Grid } from "@mui/material";
+import { useStore } from "store/Store";
 
 const Home: React.FC = () => {
+  const { status } = useStore();
+  console.log("status", status);
+
   return (
     <Grid
       container

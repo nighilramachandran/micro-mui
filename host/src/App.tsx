@@ -6,6 +6,8 @@ import { CssBaseline } from "@mui/material";
 import PrivateRoutes from "./Routes";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
+import { StoreProvider } from "store/Store";
+
 const App = () => <PrivateRoutes />;
 
 const clientId =
@@ -18,9 +20,11 @@ const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
 root.render(
   <GoogleOAuthProvider clientId={clientId}>
-    <ThemeProviders>
-      <CssBaseline enableColorScheme />
-      <App />
-    </ThemeProviders>
+    <StoreProvider>
+      <ThemeProviders>
+        <CssBaseline enableColorScheme />
+        <App />
+      </ThemeProviders>
+    </StoreProvider>
   </GoogleOAuthProvider>
 );
