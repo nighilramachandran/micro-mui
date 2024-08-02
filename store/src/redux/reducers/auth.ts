@@ -1,12 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RequestStatus } from "../../interfaces";
+import { AppThunk } from "../store";
 
 interface InitialState {
   status: RequestStatus;
+  authenticated: boolean;
 }
 
 const initialState: InitialState = {
   status: "nothing",
+  authenticated: false,
 };
 
 const AuthenticateSlice = createSlice({
@@ -16,30 +19,20 @@ const AuthenticateSlice = createSlice({
     setStatus: (state, { payload }: PayloadAction<RequestStatus>) => {
       state.status = payload;
     },
+    setAuthenticate: (state, { payload }: PayloadAction<string>) => {
+      state.authenticated = payload.length > 0 ? true : false;
+    },
   },
 });
 
-export const { setStatus } = AuthenticateSlice.actions;
+export const { setStatus, setAuthenticate } = AuthenticateSlice.actions;
 
-// export const FetchPopularArticles =
-//   (param: string): AppThunk =>
-//   async (dispatch) => {
-//     dispatch(setStatus("loading"));
-//     try {
-//       const { data } = await api.get<ArticleApiResponse>(
-//         `svc/mostpopular/v2/viewed/${param}.json`
-//       );
-//       if (data.status === "OK") {
-//         dispatch(setArticles(data?.results));
-//         const pageIds = data.results.map((result) => result.id);
-//         dispatch(setValidPagesId(pageIds));
-//         dispatch(setStatus("data"));
-//       } else {
-//         dispatch(setStatus("error"));
-//       }
-//     } catch {
-//       dispatch(setStatus("error"));
-//     }
-//   };
+export const GoogleAthenticate =
+  (token: string): AppThunk =>
+  (dispatch) => {
+    dispatch(setStatus("data"));
+    dispatch(setAuthenticate(token));
+    console.log("token in google auth", token);
+  };
 
 export default AuthenticateSlice;

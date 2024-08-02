@@ -64,7 +64,9 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "auth",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        store: "store@http://localhost:3002/remoteEntry.js",
+      },
       exposes: {
         "./Login": "./src/exports/auth/Login",
         "./GoogleAuthProvider": "./src/exports/provider/GoogleAuthProvider",
