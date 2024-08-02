@@ -5,6 +5,7 @@ import Layout from "./widgets/layouts";
 import { ROUTES } from "./utils/constants/routes";
 import AuthPage from "./pages/Auth";
 import Home from "./pages/Home";
+// import { useStore } from "store/Store";
 
 const PrivateRoutes: React.FC = () => {
   const { ROOT } = ROUTES;
