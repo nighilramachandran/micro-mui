@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import Header from "header/Header";
+import ThemeProviders from "./providers/ThemeProviders";
+import { CssBaseline } from "@mui/material";
 
 const App = () => (
   <div className="container">
@@ -15,4 +17,9 @@ if (!rootElement) throw new Error("Failed to find the root element");
 
 const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
-root.render(<App />);
+root.render(
+  <ThemeProviders>
+    <CssBaseline enableColorScheme />
+    <App />
+  </ThemeProviders>
+);
