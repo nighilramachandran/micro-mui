@@ -30,8 +30,9 @@ export const { setStatus, setAuthenticate } = AuthenticateSlice.actions;
 export const GoogleAthenticate =
   (token: string): AppThunk =>
   (dispatch) => {
-    dispatch(setStatus("data"));
+    dispatch(setStatus("loading"));
     dispatch(setAuthenticate(token));
+    dispatch(setStatus("data"));
     console.log("token in google auth", token);
   };
 
