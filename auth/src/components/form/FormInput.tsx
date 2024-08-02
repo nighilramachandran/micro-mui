@@ -241,5 +241,4 @@ const StyledLabel = styled(InputLabel)(({ theme }) => ({
   textAlign: "start",
   marginBottom: 4,
   fontWeight: 800,
-  fontFamily: "'Manrope', sans-serif",
 }));
