@@ -68,6 +68,7 @@ module.exports = (_, argv) => ({
         login: "auth@http://localhost:3001/remoteEntry.js",
         googleAuthProvider: "auth@http://localhost:3001/remoteEntry.js",
         store: "store@http://localhost:3002/remoteEntry.js",
+        products: "products@http://localhost:3003/remoteEntry.js",
       },
       exposes: {},
       shared: {
