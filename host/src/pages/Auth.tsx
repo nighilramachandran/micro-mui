@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import Login from "login/Login";
+import React, { lazy, useEffect } from "react";
+
 import { Grid } from "@mui/material";
 import { useStore } from "store/Store";
 import { useNavigate } from "react-router-dom";
 
+const Login = lazy(() => import("login/Login"));
 const AuthPage: React.FC = () => {
   // store items
   const { authenticated } = useStore();
