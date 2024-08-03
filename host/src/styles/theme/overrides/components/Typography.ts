@@ -14,11 +14,11 @@ export const typographyOverride: Components<Theme> = {
       }),
       body1: ({ theme }) => ({
         color: theme.palette.text.primary,
-        fontSize: "12px",
+        fontSize: "16px",
       }),
       body2: ({ theme }) => ({
-        fontSize: "20px",
-        color: theme.palette.text.secondary,
+        fontSize: "18px",
+        color: theme.palette.text.primary,
       }),
     },
     variants: [

@@ -22,11 +22,11 @@ const PrivateRoutes: React.FC = () => {
       <Routes>
         <Route path={ROOT} element={<Layout />}>
           <Route index element={<AuthPage />}></Route>
-          <Route
+          {/* <Route
             element={!authenticated ? <Navigate to="/" replace /> : <Outlet />}
-          >
-            <Route path="/home" element={<Home />}></Route>
-          </Route>
+          > */}
+          <Route path="/home" element={<Home />}></Route>
+          {/* </Route> */}
         </Route>
       </Routes>
     </BrowserRouter>
