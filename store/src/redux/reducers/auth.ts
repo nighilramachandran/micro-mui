@@ -33,7 +33,6 @@ export const GoogleAthenticate =
     dispatch(setStatus("loading"));
     dispatch(setAuthenticate(token));
     dispatch(setStatus("data"));
-    console.log("token in google auth", token);
   };
 
 export default AuthenticateSlice;

@@ -96,6 +96,8 @@ const Login: React.FC = () => {
     >
       <Paper>
         <Stack sx={{ ...loginStackStyles }} spacing={2}>
+          <GoogleSignIn />
+          <Typography>OR</Typography>
           <CustomForm
             formName="form"
             inputs={inputs}
@@ -103,8 +105,6 @@ const Login: React.FC = () => {
             onSubmit={(vals) => handleLogin(vals)}
             submitLable={t("Login")}
           ></CustomForm>
-          <Typography>OR</Typography>
-          <GoogleSignIn />
         </Stack>
       </Paper>
     </SnackbarProvider>
