@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { FormInput } from "./FormInput";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { CustomInputProps, RequestStatus } from "../../interfaces";
+import { useTranslation } from "react-i18next";
 
 interface InputValidation {
   required?: boolean;
@@ -101,7 +102,7 @@ export const CustomForm: React.FC<props> = (props) => {
               if (data[input.name] === "" || data[input.name] === false) {
                 errors[input.name] =
                   input.validate.required_message ??
-                  `${fieldName} ${"is required"}`;
+                  `${fieldName} ${t("is_required")}`;
               } else if (
                 input.validate.rule &&
                 !input?.validate?.rule?.test(data[input.name])
@@ -157,6 +158,7 @@ export const CustomForm: React.FC<props> = (props) => {
     }
   }, [formik.values]);
 
+  const { t } = useTranslation();
   return (
     <form
       autoComplete="off"

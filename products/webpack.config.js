@@ -69,6 +69,11 @@ module.exports = (_, argv) => ({
           },
         ],
       },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+        type: "javascript/auto",
+      },
     ],
   },
 

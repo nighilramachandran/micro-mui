@@ -7,33 +7,13 @@ import { useStore } from "store/Store";
 import GoogleIcon from "@mui/icons-material/Google";
 import Person2Icon from "@mui/icons-material/Person2";
 import PasswordIcon from "@mui/icons-material/Password";
+import { useTranslation } from "react-i18next";
 
 // interfaces
 interface LoginCredentialProps {
   username: string;
   password: string;
 }
-
-//inputs
-const inputs: CustomInputFormProps[] = [
-  {
-    type: "text",
-    name: "username",
-    label: "User Name",
-    placeholder: "admin",
-    validate: { required: true },
-    autoComplete: "false",
-    colProps: { xs: 12 },
-  },
-  {
-    type: "password",
-    name: "password",
-    label: "Password",
-    placeholder: "admin",
-    validate: { required: true },
-    colProps: { xs: 12 },
-  },
-];
 
 const loginStackStyles: CSSProperties = {
   textAlign: "center",
@@ -48,27 +28,49 @@ const stackStyles: CSSProperties = {
   fontWeight: 600,
 };
 
-const errorMessage = (
-  <Stack>
-    <Typography>
-      <Stack sx={{ ...stackStyles }}>
-        <GoogleIcon />
-        Sign in with Google
-      </Stack>
-    </Typography>
-    <Typography sx={{ textAlign: "center" }}>OR</Typography>
-    <Typography>
-      <Stack sx={{ ...stackStyles }}>
-        <Person2Icon />
-        admin
-        <PasswordIcon />
-        admin
-      </Stack>
-    </Typography>
-  </Stack>
-);
-
 const Login: React.FC = () => {
+  const { t } = useTranslation();
+
+  //inputs
+  const inputs: CustomInputFormProps[] = [
+    {
+      type: "text",
+      name: "username",
+      label: t("User_Name"),
+      placeholder: "admin",
+      validate: { required: true },
+      autoComplete: "false",
+      colProps: { xs: 12 },
+    },
+    {
+      type: "password",
+      name: "password",
+      label: t("Password"),
+      placeholder: "admin",
+      validate: { required: true },
+      colProps: { xs: 12 },
+    },
+  ];
+
+  const errorMessage = (
+    <Stack>
+      <Typography>
+        <Stack sx={{ ...stackStyles }}>
+          <GoogleIcon />
+          {t("Sign_in_with_Google")}s
+        </Stack>
+      </Typography>
+      <Typography sx={{ textAlign: "center" }}>OR</Typography>
+      <Typography>
+        <Stack sx={{ ...stackStyles }}>
+          <Person2Icon />
+          admin
+          <PasswordIcon />
+          admin
+        </Stack>
+      </Typography>
+    </Stack>
+  );
   // store items
   const { dispatchGoogleAuthenticate } = useStore();
 
@@ -78,8 +80,6 @@ const Login: React.FC = () => {
     if (username === "admin" && password === "admin") {
       dispatchGoogleAuthenticate(username);
     } else {
-      console.log("here");
-
       enqueueSnackbar(errorMessage, {
         variant: "warning",
       });
@@ -101,7 +101,7 @@ const Login: React.FC = () => {
             inputs={inputs}
             resetFrom
             onSubmit={(vals) => handleLogin(vals)}
-            submitLable={"Login"}
+            submitLable={t("Login")}
           ></CustomForm>
           <Typography>OR</Typography>
           <GoogleSignIn />

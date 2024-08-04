@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 import React, { CSSProperties } from "react";
 import iphoneImage from "./iphone.png";
+import { useTranslation } from "react-i18next";
 
 const Products: React.FC = () => {
   const items = [...Array(30)].map((_, i) => i + 1);
@@ -19,6 +20,7 @@ const Products: React.FC = () => {
 
 // components
 const ProductCard = () => {
+  const { t } = useTranslation();
   return (
     <Paper sx={{ ...productPaperStyles }}>
       <Stack justifyContent={"space-between"} sx={{ height: "100%" }}>
@@ -30,11 +32,9 @@ const ProductCard = () => {
           />
         </Box>
         <Typography variant="body2" sx={{ fontWeight: 700 }}>
-          Apple iPhone 15 Pro (128 GB) - Blue Titanium
+          {t("apple_desc")}
         </Typography>
-        <Typography variant="body1">
-          Fulfilled by Shop Now - FREE Shipping
-        </Typography>
+        <Typography variant="body1">{t("free")}</Typography>
       </Stack>
     </Paper>
   );
