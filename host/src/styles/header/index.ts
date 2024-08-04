@@ -17,5 +17,8 @@ export const headerStyles: HeaderStylesProps = {
     xs: HEADER_SPACINGS.H_MOBILE,
     md: HEADER_SPACINGS.H_MAIN_DESKTOP,
   },
+  display: "flex",
+  alignItems: "center",
   justifyContent: "center",
+  // justifyContent: "center",
 };

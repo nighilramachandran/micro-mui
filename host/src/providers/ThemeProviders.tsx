@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 import React, { ReactNode, useEffect, useMemo, useState } from "react";
 import darkThemeOptions from "../styles/theme/DarkTheme";
 
@@ -36,11 +36,13 @@ const ThemeProviders: React.FC<ThemeProviderProps> = ({ children }) => {
   }, [theme]);
 
   return (
+    // <Box dir={"rtl" : "ltr"}>
     <ThemeProvider theme={directionTheme}>
       <ThemeContext.Provider value={[theme, toggleTheme]}>
         {children}
       </ThemeContext.Provider>
     </ThemeProvider>
+    // </Box>
   );
 };
 
