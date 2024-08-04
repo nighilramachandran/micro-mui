@@ -8,21 +8,12 @@ interface ThemeProviderProps {
 const LanguageProviders: React.FC<ThemeProviderProps> = ({ children }) => {
   //   query params
   const { locale } = useParams();
-  const navigate = useNavigate();
 
   // states
-  const [language, setLang] = useState(locale);
+  const [language, setLang] = useState(locale ?? "en");
 
   //   functions
   const setLanguage = (newLang: string) => {
-    const currentPath = location.pathname;
-    const searchParams = new URLSearchParams(location.search);
-    searchParams.set("locale", newLang);
-    navigate({
-      pathname: currentPath,
-      search: searchParams.toString(),
-    });
-
     setLang(newLang);
   };
   return (
