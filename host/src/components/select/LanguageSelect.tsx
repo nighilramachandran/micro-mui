@@ -7,13 +7,13 @@ const languages = [
   { name: "العربية", value: "ar" },
 ];
 export default function LanguageSelect() {
+  // states
   const [language, setLanguage] = useContext(LanguageContext);
   const [languageAnchor, setLanguageAnchor] = useState<null | HTMLElement>(
     null
   );
-  // useEffect(() => {
-  //   setLanguageAnchor(null);
-  // }, [pathname]);
+
+  // functions
   const handleClickLanguagesMenu = (event: React.MouseEvent<HTMLElement>) => {
     setLanguageAnchor(event.currentTarget);
   };
@@ -24,6 +24,11 @@ export default function LanguageSelect() {
     setLanguage(value);
     handleCloseLanguagesMenu();
   };
+
+  // Effects
+  useEffect(() => {
+    localStorage.setItem("lang", language);
+  }, [language]);
   return (
     <>
       <IconButton onClick={handleClickLanguagesMenu} disableRipple>
