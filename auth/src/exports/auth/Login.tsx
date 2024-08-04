@@ -97,7 +97,7 @@ const Login: React.FC = () => {
       <Paper>
         <Stack sx={{ ...loginStackStyles }} spacing={2}>
           <GoogleSignIn />
-          <Typography>OR</Typography>
+          <Typography>{t("OR")}</Typography>
           <CustomForm
             formName="form"
             inputs={inputs}
