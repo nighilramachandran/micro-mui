@@ -122,4 +122,4 @@ npm install
 npm start
 ```
 
-:rocket: :rocket: The application start on localhost:3003 :rocket: :rocket:
+:rocket: :rocket: The application start on localhost:3000 :rocket: :rocket:
